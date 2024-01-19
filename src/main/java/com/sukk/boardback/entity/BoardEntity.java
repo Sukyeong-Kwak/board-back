@@ -21,5 +21,4 @@ public class BoardEntity {
     private int commentCount;
     private int viewCount;
     private String wrtierEmail;
-
 }

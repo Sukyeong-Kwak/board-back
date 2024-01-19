@@ -18,5 +18,4 @@ public class CommentEntity {
     private String writeDatetiem;
     private String userEmail;
     private int boardNumber;
-
 }

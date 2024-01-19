@@ -1,4 +1,4 @@
-package com.sukk.boardback.dto.request.auth;
+package com.sukk.boardback.dto.response.auth;
 
 import com.sukk.boardback.common.ResponseCode;
 import com.sukk.boardback.common.ResponseMessage;

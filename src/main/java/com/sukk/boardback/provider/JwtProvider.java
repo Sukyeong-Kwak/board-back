@@ -14,7 +14,7 @@ import java.util.Date;
 @Component
 public class JwtProvider {
 
-    @Value("${secret-key")
+    @Value("${secret-key}")
     private String secretKey;
 
     public String create(String email) {
