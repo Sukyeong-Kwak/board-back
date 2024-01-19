@@ -3,9 +3,11 @@ package com.sukk.boardback.dto.response.auth;
 import com.sukk.boardback.common.ResponseCode;
 import com.sukk.boardback.common.ResponseMessage;
 import com.sukk.boardback.dto.response.ResponseDto;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+@Getter
 public class SignInResponseDto extends ResponseDto {
 
     private String token;
@@ -26,5 +28,4 @@ public class SignInResponseDto extends ResponseDto {
         ResponseDto result = new ResponseDto(ResponseCode.SIGN_IN_FAIL, ResponseMessage.SIGN_IN_FAIL);
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(result);
     }
-
 }
