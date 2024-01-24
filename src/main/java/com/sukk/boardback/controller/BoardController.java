@@ -1,6 +1,7 @@
 package com.sukk.boardback.controller;
 
 import com.sukk.boardback.dto.request.board.PostBoardRequestDto;
+import com.sukk.boardback.dto.response.board.GetBoardResponseDto;
 import com.sukk.boardback.dto.response.board.PostBoardResponseDto;
 import com.sukk.boardback.dto.response.user.GetSignInUserResponseDto;
 import com.sukk.boardback.service.BoardService;
@@ -9,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/board")
@@ -20,6 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class BoardController {
 
     private final BoardService boardService;
+
+    @GetMapping("/{boardNumber}")
+    public ResponseEntity<? super GetBoardResponseDto> getBoard(
+            @PathVariable("boardNumber") Integer boardNumber
+    ) {
+        ResponseEntity<? super GetBoardResponseDto> response = boardService.getBoard(boardNumber);
+        return response;
+    }
 
     @PostMapping("")
     public ResponseEntity<? super PostBoardResponseDto> postBoard(
@@ -31,4 +37,6 @@ public class BoardController {
         ResponseEntity<? super PostBoardResponseDto> response = boardService.postBoard(requestBody, principalEmail);
         return response;
     }
+
+
 }
